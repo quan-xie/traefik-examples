@@ -1,0 +1,19 @@
+api:
+  insecure: true
+  dashboard: true                             # Enable the dashboard
+
+entryPoints:
+  web:
+    address: ":80"
+  traefik:
+    address: ":8080"
+
+providers:
+ file:
+   filename: "traefik-dynamic.yml"
+   watch: true
+
+experimental:
+  localPlugins:
+    plugindemo:
+      moduleName: "github.com/traefik/plugindemo"
